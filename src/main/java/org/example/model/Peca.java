@@ -3,15 +3,15 @@ package org.example.model;
 public class Peca {
     private int id;
     private String nome;
-    private int quantidade;
+    private Double quantidade;
 
-    public Peca(int id, String nome, int quantidade) {
+    public Peca(int id, String nome, Double quantidade) {
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;
     }
 
-    public Peca(String nome, int quantidade) {
+    public Peca(String nome, Double quantidade) {
         this.nome = nome;
         this.quantidade = quantidade;
     }
@@ -32,11 +32,11 @@ public class Peca {
         this.nome = nome;
     }
 
-    public int getQuantidade() {
+    public Double getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Double quantidade) {
         this.quantidade = quantidade;
     }
 }
