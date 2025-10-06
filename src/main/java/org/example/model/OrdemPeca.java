@@ -3,9 +3,9 @@ package org.example.model;
 public class OrdemPeca {
     private OrdemManutencao idOrdem;
     private Peca idPeca;
-    private int quantidade;
+    private Double quantidade;
 
-    public OrdemPeca(OrdemManutencao idOrdem, Peca idPeca, int quantidade) {
+    public OrdemPeca(OrdemManutencao idOrdem, Peca idPeca, Double quantidade) {
         this.idOrdem = idOrdem;
         this.idPeca = idPeca;
         this.quantidade = quantidade;
@@ -27,11 +27,11 @@ public class OrdemPeca {
         this.idPeca = idPeca;
     }
 
-    public int getQuantidade() {
+    public Double getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Double quantidade) {
         this.quantidade = quantidade;
     }
 }
