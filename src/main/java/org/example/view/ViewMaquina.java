@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class ViewMaquina {
 
-    static Scanner scNum = new Scanner (System.in);
-    static Scanner scStr = new Scanner (System.in);
+    Scanner scNum = new Scanner(System.in);
+    Scanner scStr = new Scanner(System.in);
 
-    public static void cadastroMaquina() {
+    public Maquina cadastroMaquina() {
         System.out.println("====== CADASTRO DE MÁQUINA ======");
 
         System.out.println("Digite o nome da máquina: ");
@@ -21,13 +21,16 @@ public class ViewMaquina {
         System.out.println("Digite o setor da máquina: ");
         String setor = scStr.nextLine();
 
-        var controllerMaquina = new ControllerMaquina();
+        var novaMaquina = new Maquina(nome, setor);
 
-        try{
-            controllerMaquina.cadastrarMaquina(nome, setor);
-            System.out.println("Máquina cadastrada com sucesso!");
-        } catch (SQLException e) {
-            System.out.println("Erro ao cadastrar máquina: " + e.getMessage());
-        }
+        return novaMaquina;
+    }
+
+    public void mostarMensagemCadastro(){
+        System.out.println("[OK] Máquina cadastrada com sucesso!");
+    }
+
+    public void mostrarMensagemErro(){
+        System.out.println("[ERRO] Erro ao cadastrar máquina.");
     }
 }
