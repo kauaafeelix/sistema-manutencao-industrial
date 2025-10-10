@@ -5,6 +5,10 @@ public class Peca {
     private String nome;
     private Double estoque;
 
+
+    public Peca(){
+    }
+
     public Peca(int id, String nome, Double estoque) {
         this.id = id;
         this.nome = nome;
