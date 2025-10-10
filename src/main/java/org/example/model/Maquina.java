@@ -9,6 +9,10 @@ public class Maquina {
     private String setor;
     private StatusMaquina status;
 
+
+    public Maquina() {
+    }
+
     public Maquina(int id, String nome, String setor, StatusMaquina status) {
         this.id = id;
         this.nome = nome;
