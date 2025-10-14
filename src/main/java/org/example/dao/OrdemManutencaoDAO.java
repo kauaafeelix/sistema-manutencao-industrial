@@ -35,7 +35,6 @@ public class OrdemManutencaoDAO {
 
               psOrdem.setInt(1, ordem.getIdMaquina().getId());
               psOrdem.setInt(2, ordem.getIdTecnico().getId());
-              psOrdem.setDate(3, Date.valueOf(ordem.getDataSolicitacao()));
               psOrdem.executeUpdate();
           }
 
