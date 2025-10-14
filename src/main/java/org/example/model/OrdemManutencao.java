@@ -13,6 +13,9 @@ public class OrdemManutencao {
     private LocalDate dataSolicitacao;
     private StatusOrdemManutencao status;
 
+
+    public OrdemManutencao() {}
+
     public OrdemManutencao(int id, Maquina idMaquina, Tecnico idTecnico, LocalDate dataSolicitacao, StatusOrdemManutencao status) {
         this.id = id;
         this.idMaquina = idMaquina;
@@ -27,6 +30,13 @@ public class OrdemManutencao {
         this.dataSolicitacao = dataSolicitacao;
         this.status = status;
     }
+
+    public OrdemManutencao(Maquina idMaquina, Tecnico idTecnico) {
+        this.idMaquina = idMaquina;
+        this.idTecnico = idTecnico;
+    }
+
+
 
     public int getId() {
         return id;
