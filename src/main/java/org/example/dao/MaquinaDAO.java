@@ -2,10 +2,14 @@ package org.example.dao;
 
 import org.example.connection.Conexao;
 import org.example.model.Maquina;
+import org.example.model.enums.StatusMaquina;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MaquinaDAO {
 
@@ -25,5 +29,30 @@ public class MaquinaDAO {
             ps.setString(2, maquina.getSetor());
             ps.executeUpdate();
         }
+    }
+
+    public List<Maquina> listarMaquinas() throws SQLException{
+        List<Maquina> maquinas = new ArrayList<>();
+        String sql = """
+                SELECT id, nome, setor, status
+                FROM Maquina
+                WHERE status = 'OPERACIONAL'
+                """;
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String setor = rs.getString("setor");
+                String status = rs.getString("status");
+
+                Maquina maquina = new Maquina(id, nome, setor, StatusMaquina.valueOf(status));
+                maquinas.add(maquina);
+            }
+        }
+        return maquinas;
     }
 }
