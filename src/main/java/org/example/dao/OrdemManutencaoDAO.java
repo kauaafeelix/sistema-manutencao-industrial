@@ -14,7 +14,7 @@ public class OrdemManutencaoDAO {
 
   public void criarOrdemManutencao(OrdemManutencao ordem) throws SQLException {
 
-      String sql = """
+      String sqlOrdem = """
               INSERT INTO OrdemManutencao ( 
               idMaquina, 
               idTecnico,
@@ -23,13 +23,26 @@ public class OrdemManutencaoDAO {
               VALUES (?, ?, ?, 'PENDENTE')
               """;
 
-      try (Connection conn = Conexao.conectar();
-           PreparedStatement ps = conn.prepareStatement(sql)){
+      String sqlMaquina = """
+              UPDATE Maquina
+              SET status = 'EM_MANUTENCAO'
+              WHERE id = ?
+              """;
 
-          ps.setInt(1, ordem.getIdMaquina().getId());
-          ps.setInt(2, ordem.getIdTecnico().getId());
-          ps.setDate(3, Date.valueOf(ordem.getDataSolicitacao()));
-          ps.executeUpdate();
+      try (Connection conn = Conexao.conectar()) {
+
+          try (PreparedStatement psOrdem = conn.prepareStatement(sqlOrdem)) {
+
+              psOrdem.setInt(1, ordem.getIdMaquina().getId());
+              psOrdem.setInt(2, ordem.getIdTecnico().getId());
+              psOrdem.setDate(3, Date.valueOf(ordem.getDataSolicitacao()));
+              psOrdem.executeUpdate();
+          }
+
+          try(PreparedStatement psMaquina = conn.prepareStatement(sqlMaquina)){
+              psMaquina.setInt(1, ordem.getIdMaquina().getId());
+              psMaquina.executeUpdate();
+          }
       }
   }
 }
