@@ -25,4 +25,14 @@ public class ViewGeral {
 
         return opcao;
     }
+    public void mostarMensagemCadastro(){
+        System.out.println("[OK] Cadastro realizado com sucesso!");
+    }
+    public void mostrarMensagemErro(){
+        System.out.println("[ERRO] Erro ao cadastrar.");
+    }
+    public void mostrarMensagemErroPorSerNulo(){
+        System.out.println("[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
+
+    }
 }
