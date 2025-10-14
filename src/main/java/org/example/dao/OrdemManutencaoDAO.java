@@ -20,7 +20,7 @@ public class OrdemManutencaoDAO {
               idTecnico,
               dataSolicitacao,
               status )
-              VALUES (?, ?, ?, 'PENDENTE')
+              VALUES (?, ?, NOW(), 'PENDENTE')
               """;
 
       String sqlMaquina = """
