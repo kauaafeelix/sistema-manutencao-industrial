@@ -24,6 +24,9 @@ public class ViewPeca {
     }
 
     public Peca cadastrarPeca(){
+
+        System.out.println("----- CADASTRO DE PEÇA -----");
+
         System.out.println("Digite o nome da Peça: ");
         String nome = scStr.nextLine();
 
