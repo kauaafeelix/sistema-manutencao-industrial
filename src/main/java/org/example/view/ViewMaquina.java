@@ -39,4 +39,8 @@ public class ViewMaquina {
         return novaMaquina;
     }
 
+    public void mensagemNaoExisteMaquina(){
+        System.out.println("[ERRO] Não existe máquina cadastrada com esse ID.");
+    }
+
 }
