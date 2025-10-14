@@ -26,6 +26,8 @@ public class ViewTecnico {
 
     public Tecnico cadastrarTecnico(){
 
+        System.out.println("----- CADASTRO DE TÉCNICO -----");
+
         System.out.println("Digite o nome do Técnico: ");
         String nome = scStr.nextLine();
 
