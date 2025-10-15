@@ -38,4 +38,7 @@ public class ViewTecnico {
         return novoTecnico;
     }
 
+    public void mensagemNaoExisteTecnico(){
+        System.out.println("[ERRO] Não existe um Técnico cadastrado(a) com esse ID.");
+    }
 }
