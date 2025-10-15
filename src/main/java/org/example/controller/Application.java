@@ -8,22 +8,33 @@ import org.example.view.ViewGeral;
 public class Application {
     int opcao = ViewGeral.menuGeral();
 
-    public int controllerGeral (){
+    public int controllerGeral () {
 
-        switch (opcao){
-            case 1 ->{
-                ControllerMaquina controllerMaquina = new ControllerMaquina();
-                controllerMaquina.maquinaController();
+        do {
+
+            switch (opcao) {
+                case 1 -> {
+                    ControllerMaquina controllerMaquina = new ControllerMaquina();
+                    controllerMaquina.maquinaController();
+                }
+                case 2 -> {
+                    ControllerTecnico controllerTecnico = new ControllerTecnico();
+                    controllerTecnico.tecnicoController();
+                }
+                case 3 -> {
+                    ControllerPeca controllerPeca = new ControllerPeca();
+                    controllerPeca.pecaController();
+                }
+                case 4 -> {
+                    ControllerOrdemManutencao controllerOrdemManutencao = new ControllerOrdemManutencao();
+                    controllerOrdemManutencao.ordemManutencaoController();
+                }
+                case 0 -> {
+
+                }
             }
-            case 2 ->{
-                ControllerTecnico controllerTecnico = new ControllerTecnico();
-                controllerTecnico.tecnicoController();
-            }
-            case 3 ->{
-                ControllerPeca controllerPeca = new ControllerPeca();
-                controllerPeca.pecaController();
-            }
-        }
-        return 0;
+        }while (opcao != 0);
+        return opcao;
     }
 }
+
