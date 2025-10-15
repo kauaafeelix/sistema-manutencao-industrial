@@ -13,10 +13,14 @@ public class ControllerTecnico {
     TecnicoService tecnicoService = new TecnicoService();
 
     public void tecnicoController(){
+
+        do{
+
         switch (viewTecnico.menuTecnico()){
             case 1-> {
                 tecnicoService.cadastrarTecnico();
             }
         }
+        }while(viewTecnico.menuTecnico() != 0);
     }
 }
