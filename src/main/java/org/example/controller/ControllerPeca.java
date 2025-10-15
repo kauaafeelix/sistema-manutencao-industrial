@@ -13,11 +13,14 @@ public class ControllerPeca {
     PecaService pecaService = new PecaService();
 
     public void pecaController(){
+        do {
+
         switch (viewPeca.menuPeca()){
 
             case 1-> {
                 pecaService.cadastrarPeca();
             }
         }
+        }while (viewPeca.menuPeca() != 0);
     }
 }
