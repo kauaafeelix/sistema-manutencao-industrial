@@ -2,6 +2,7 @@ package org.example.dao;
 
 import org.example.connection.Conexao;
 import org.example.model.OrdemManutencao;
+import org.example.model.OrdemPeca;
 import org.example.model.Peca;
 
 import java.sql.*;
@@ -61,9 +62,11 @@ public class OrdemManutencaoDAO {
           }
 
           try(PreparedStatement psOrdemPeca = conn.prepareStatement(sqlOrdemPeca)){
+              var op = new OrdemPeca();
               var peca = new Peca();
               psOrdemPeca.setInt(1, ordem.getId());
               psOrdemPeca.setInt(2, peca.getId());
+              psOrdemPeca.setDouble(3, op.getQuantidade());
 
           }
       }
