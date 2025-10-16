@@ -11,6 +11,10 @@ public class OrdemPeca {
         this.quantidade = quantidade;
     }
 
+    public OrdemPeca() {
+
+    }
+
     public OrdemManutencao getIdOrdem() {
         return idOrdem;
     }
