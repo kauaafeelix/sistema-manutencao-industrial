@@ -16,7 +16,7 @@ public class TecnicoUtils {
                 System.out.println("-----------------------------");
             }
         } else {
-            System.out.println("Nenhum técnico encontrado.");
+            System.out.println("[AVISO] Nenhum técnico encontrado.");
         }
 
     }
