@@ -36,6 +36,7 @@ public class OrdemManutencaoService {
 
         try {
             List<Maquina>maquinas = new ArrayList<>();
+
             if (maquinas.isEmpty() || maquinas == null) {
             maquinaUtils.exibirMaquinas(maquinas);
             return;
@@ -43,12 +44,14 @@ public class OrdemManutencaoService {
                 maquinaUtils.exibirMaquinas(maquinas);
                 int idMaquina = viewOrdemManutencao.criarOrdemManutencaoIdMaquina();
                 var maquina = maquinaDAO.buscarMaquinaPorId(idMaquina);
+
                 if (maquina == null) {
                     viewMaquina.mensagemNaoExisteMaquina();
                     return;
                 } else {
                     int idTecnico = viewOrdemManutencao.criarOrdemManutencaoIdTecnico();
                     var tecnico = tecnicoDAO.buscarTecnicoPorId(idTecnico);
+
                     if (tecnico == null) {
                         viewTecnico.mensagemNaoExisteTecnico();
                         return;
