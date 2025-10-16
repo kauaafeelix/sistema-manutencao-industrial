@@ -98,4 +98,29 @@ public class OrdemManutencaoDAO {
         }
         return ordens;
     }
+
+    public OrdemManutencao buscarOrdemPorId(int id) throws SQLException{
+        String sql = """
+                SELECT id, idMaquina, idTecnico, dataSolicitacao, status
+                FROM OrdemManutencao
+                WHERE id = ?
+                """;
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                int idOrdem = rs.getInt("id");
+                int idMaquina = rs.getInt("idMaquina");
+                int idTecnico = rs.getInt("idTecnico");
+                Date dataSolicitacao = rs.getDate("dataSolicitacao");
+                String status = rs.getString("status");
+
+                return new OrdemManutencao(idOrdem, new Maquina(idMaquina), new Tecnico(idTecnico), dataSolicitacao.toLocalDate(), StatusOrdemManutencao.valueOf(status));
+            }
+        }
+        return null;
+    }
 }
