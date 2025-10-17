@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class ViewGeral {
 
-    static Scanner scNum = new Scanner (System.in);
+    Scanner scNum = new Scanner (System.in);
+    Scanner scStr = new Scanner (System.in);
 
-    public static int menuGeral (){
+    public int menuGeral (){
         System.out.println("""
                 ====== SISTEMA DE MANUTENÇÃO INDUSTRIAL ======
                 1 - CADASTRAR MÁQUINA
@@ -22,6 +23,7 @@ public class ViewGeral {
                 ==============================================
                 """);
         int opcao = scNum.nextInt();
+        scStr.nextLine();
 
         return opcao;
     }
@@ -35,7 +37,7 @@ public class ViewGeral {
         System.out.println("[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
     }
 
-    public static void encerrando() {
+    public void encerrando() {
         try {
             System.out.print("\nS");
             Thread.sleep(500);
