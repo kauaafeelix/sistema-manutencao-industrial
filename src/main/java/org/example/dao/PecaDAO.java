@@ -17,7 +17,7 @@ public class PecaDAO {
         String sqlPeca = "INSERT INTO Peca (nome, estoque) VALUES (?, ?)";
 
         String sqlGetId = """
-                SELECT id FROM Peca ORDER BY desc LIMIT 1
+                SELECT id FROM Peca ORDER BY id DESC LIMIT 1
                 """;
 
         String sqlOrdemPeca = """
@@ -41,14 +41,14 @@ public class PecaDAO {
                 }
             }
 
-            try (PreparedStatement psOrdemPeca = conn.prepareStatement(sqlOrdemPeca)) {
+            try(PreparedStatement psOrdemPeca = conn.prepareStatement(sqlOrdemPeca)){
                 var op = new OrdemPeca();
                 var ordem = new OrdemManutencao();
                 psOrdemPeca.setInt(1, ordem.getId());
                 psOrdemPeca.setInt(2, peca.getId());
                 psOrdemPeca.setDouble(3, op.getQuantidade());
 
-            }
         }
     }
+}
 }
