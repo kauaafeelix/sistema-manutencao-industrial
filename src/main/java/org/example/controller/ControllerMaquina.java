@@ -12,6 +12,8 @@ public class ControllerMaquina {
 
     ViewMaquina viewMaquina = new ViewMaquina();
     MaquinaService maquinaService = new MaquinaService();
+    ViewGeral viewGeral = new ViewGeral();
+
 
     public void maquinaController() {
 
@@ -22,7 +24,7 @@ public class ControllerMaquina {
                     maquinaService.cadastrarMaquina();
                 }
                 case 0 ->{
-                    ViewGeral.menuGeral();
+                    viewGeral.menuGeral();
                 }
             }
         }while (viewMaquina.menuMaquina() != 0);
