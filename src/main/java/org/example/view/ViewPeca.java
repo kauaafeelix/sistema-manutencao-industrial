@@ -31,7 +31,7 @@ public class ViewPeca {
         String nome = scStr.nextLine();
 
         System.out.println("Digite a quantidade em Estoque: ");
-        Double estoque = scNum.nextDouble();
+        double estoque = scNum.nextDouble();
 
         var novaPeca = new Peca(nome, estoque);
 
