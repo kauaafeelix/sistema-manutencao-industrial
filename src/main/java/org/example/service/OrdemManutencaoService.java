@@ -32,11 +32,8 @@ public class OrdemManutencaoService {
 
     public void cadastrarOrdemManutencao() {
 
-        viewOrdemManutencao.menuCriarOrdemManutencao();
-
         try {
-            List<Maquina>maquinas = new ArrayList<>();
-
+            List<Maquina> maquinas = maquinaDAO.listarMaquinas();
             if (maquinas.isEmpty() || maquinas == null) {
             maquinaUtils.exibirMaquinas(maquinas);
             return;
