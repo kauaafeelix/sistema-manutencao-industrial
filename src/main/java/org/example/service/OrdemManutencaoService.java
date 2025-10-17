@@ -31,39 +31,44 @@ public class OrdemManutencaoService {
     TecnicoUtils tecnicoUtils = new TecnicoUtils();
 
     public void cadastrarOrdemManutencao() {
-
         try {
             List<Maquina> maquinas = maquinaDAO.listarMaquinas();
-            if (maquinas.isEmpty() || maquinas == null) {
-            maquinaUtils.exibirMaquinas(maquinas);
-            return;
-            }else {
+            if (maquinas == null || maquinas.isEmpty()) {
                 maquinaUtils.exibirMaquinas(maquinas);
-                int idMaquina = viewOrdemManutencao.criarOrdemManutencaoIdMaquina();
-                var maquina = maquinaDAO.buscarMaquinaPorId(idMaquina);
-
-                if (maquina == null) {
-                    viewMaquina.mensagemNaoExisteMaquina();
-                    return;
-                } else {
-                    int idTecnico = viewOrdemManutencao.criarOrdemManutencaoIdTecnico();
-                    var tecnico = tecnicoDAO.buscarTecnicoPorId(idTecnico);
-
-                    if (tecnico == null) {
-                        viewTecnico.mensagemNaoExisteTecnico();
-                        return;
-                    }
-                    else{
-                        var ordemManutencaoDAO = new OrdemManutencaoDAO();
-                        OrdemManutencao ordemManutencao = new OrdemManutencao(maquina, tecnico);
-                        ordemManutencaoDAO.criarOrdemManutencao(ordemManutencao);
-                        viewGeral.mostarMensagemCadastro();
-                    }
-                }
+                return;
             }
+
+            maquinaUtils.exibirMaquinas(maquinas);
+
+            int idMaquina = viewOrdemManutencao.criarOrdemManutencaoIdMaquina();
+            var maquina = maquinaDAO.buscarMaquinaPorId(idMaquina);
+            if (maquina == null) {
+                viewMaquina.mensagemNaoExisteMaquina();
+                return;
+            }
+
+            List<Tecnico> tecnicos = tecnicoDAO.listarTecnicos();
+            if (tecnicos == null || tecnicos.isEmpty()) {
+                tecnicoUtils.exibirTecnicos(tecnicos);
+                return;
+            }
+
+            tecnicoUtils.exibirTecnicos(tecnicos);
+            int idTecnico = viewOrdemManutencao.criarOrdemManutencaoIdTecnico();
+            var tecnico = tecnicoDAO.buscarTecnicoPorId(idTecnico);
+            if (tecnico == null) {
+                viewTecnico.mensagemNaoExisteTecnico();
+                return;
+            }
+
+            OrdemManutencao ordemManutencao = new OrdemManutencao(maquina, tecnico);
+            ordemManutencaoDAO.criarOrdemManutencao(ordemManutencao);
+            viewGeral.mostarMensagemCadastro();
+
         } catch (SQLException e) {
             viewGeral.mostrarMensagemErro();
             e.printStackTrace();
         }
     }
+
 }
