@@ -6,13 +6,14 @@ import org.example.service.TecnicoService;
 import org.example.view.ViewGeral;
 
 public class Application {
-    int opcao = ViewGeral.menuGeral();
+    ViewGeral viewGeral = new ViewGeral();
 
-    public int controllerGeral () {
+
+    public void controllerGeral () {
 
         do {
 
-            switch (opcao) {
+            switch (viewGeral.menuGeral()) {
                 case 1 -> {
                     ControllerMaquina controllerMaquina = new ControllerMaquina();
                     controllerMaquina.maquinaController();
@@ -30,11 +31,10 @@ public class Application {
                     controllerOrdemManutencao.ordemManutencaoController();
                 }
                 case 0 -> {
-
+                    viewGeral.encerrando();
                 }
             }
-        }while (opcao != 0);
-        return opcao;
+        }while (viewGeral.menuGeral() != 0);
     }
 }
 
