@@ -8,6 +8,7 @@ public class ControllerOrdemManutencao {
 
     ViewOrdemManutencao viewOrdemManutencao = new ViewOrdemManutencao();
     OrdemManutencaoService ordemManutencaoService = new OrdemManutencaoService();
+    ViewGeral viewGeral = new ViewGeral();
 
     public void ordemManutencaoController(){
 
@@ -17,7 +18,7 @@ public class ControllerOrdemManutencao {
                 ordemManutencaoService.cadastrarOrdemManutencao();
             }
             case 0 ->{
-                ViewGeral.menuGeral();
+                viewGeral.menuGeral();
             }
         }
     } while (viewOrdemManutencao.menuOrdemManutencao() != 0);
