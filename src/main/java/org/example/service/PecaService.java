@@ -17,7 +17,7 @@ public class PecaService {
         var peca = new Peca();
         peca = viewPeca.cadastrarPeca();
 
-        if(peca.getNome() == null || peca.getNome().isEmpty() || peca.getEstoque() == null || peca.getEstoque() < 0){
+        if(peca.getNome() == null || peca.getNome().isEmpty() || peca.getEstoque() < 0){
             viewGeral.mostrarMensagemErroPorSerNulo();
         } else {
 
