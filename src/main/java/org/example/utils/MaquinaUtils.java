@@ -12,8 +12,8 @@ public class MaquinaUtils {
 
     public void exibirMaquinas(List<Maquina>maquinas){
         if(maquinas!= null && !maquinas.isEmpty()){
+                System.out.println("\n------Lista de Máquinas------");
             for(Maquina m : maquinas){
-                System.out.println("------Lista de Máquinas------");
                 System.out.println("\nID: " + m.getId() + "\n | Nome: " + m.getNome() + "\n | Setor: " + m.getSetor() + "\n Status: "+ m.getStatus());
 
             }
