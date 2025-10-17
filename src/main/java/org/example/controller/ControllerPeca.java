@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.dao.PecaDAO;
 import org.example.model.Peca;
 import org.example.service.PecaService;
+import org.example.view.ViewGeral;
 import org.example.view.ViewPeca;
 
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ public class ControllerPeca {
 
     ViewPeca viewPeca = new ViewPeca();
     PecaService pecaService = new PecaService();
+    ViewGeral viewGeral = new ViewGeral();
 
     public void pecaController(){
         do {
@@ -19,6 +21,9 @@ public class ControllerPeca {
 
             case 1-> {
                 pecaService.cadastrarPeca();
+            }
+            case 0->{
+                viewGeral.menuGeral();
             }
         }
         }while (viewPeca.menuPeca() != 0);
