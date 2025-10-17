@@ -71,7 +71,7 @@ public class OrdemManutencaoDAO {
         }
     }
 
-    public List<OrdemManutencao> ordemManutencaos() throws SQLException {
+    public List<OrdemManutencao> ordens() throws SQLException {
         List<OrdemManutencao> ordens = new ArrayList<>();
 
         String sql = """
