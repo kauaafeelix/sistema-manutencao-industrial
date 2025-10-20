@@ -13,7 +13,7 @@ public class ViewMaquina {
     Scanner scStr = new Scanner(System.in);
 
     public int menuMaquina() {
-        System.out.println("====== MENU MÁQUINA ======");
+        System.out.println("\n====== MENU MÁQUINA ======");
         System.out.println("1 - Cadastrar Máquina");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
@@ -23,7 +23,7 @@ public class ViewMaquina {
 
 
     public Maquina cadastroMaquina() {
-            System.out.println("====== CADASTRO DE MÁQUINA ======");
+            System.out.println("\n====== CADASTRO DE MÁQUINA ======");
 
             System.out.println("Digite o nome da máquina: ");
             String nome = scStr.nextLine();
@@ -37,7 +37,7 @@ public class ViewMaquina {
     }
 
     public void mensagemNaoExisteMaquina(){
-        System.err.println("[ERRO] Não existe máquina cadastrada com esse ID.");
+        System.err.println("\n[ERRO] Não existe máquina cadastrada com esse ID.");
     }
 
 }
