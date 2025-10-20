@@ -10,7 +10,7 @@ public class ViewGeral {
 
     public int menuGeral (){
         System.out.println("""
-                ====== SISTEMA DE MANUTENÇÃO INDUSTRIAL ======
+                \n====== SISTEMA DE MANUTENÇÃO INDUSTRIAL ======
                 1 - CADASTRAR MÁQUINA
                 2 - CADASTRAR TÉCNICO
                 3 - CADASTRAR PEÇA
@@ -24,7 +24,6 @@ public class ViewGeral {
                 ==============================================
                 """);
         int opcao = scNum.nextInt();
-        scStr.nextLine();
 
         return opcao;
     }
