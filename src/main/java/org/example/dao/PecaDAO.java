@@ -53,7 +53,7 @@ public class PecaDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()){
+            while (rs.next()){
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 double estoque = rs.getDouble("estoque");
