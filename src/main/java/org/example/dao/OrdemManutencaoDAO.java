@@ -106,4 +106,26 @@ public class OrdemManutencaoDAO {
         }
         return null;
     }
+
+    public boolean existeIdOrdem(int id) throws SQLException{
+        boolean existe = false;
+
+        String sql = """
+                SELECT id, idMaquina, idTecnico, dataSolicitacao, status
+                FROM OrdemManutencao
+                WHERE id = ?
+                """;
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                existe = true;
+            }
+        }
+        return existe;
+    }
 }
