@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PecaDAO {
 
@@ -37,6 +39,31 @@ public class PecaDAO {
             }
     }
 }
+
+    public List<Peca> listarPecas() throws SQLException {
+
+        List<Peca> pecas = new ArrayList<>();
+
+        String sql = """
+                SELECT id, nome, estoque
+                FROM Peca
+                """;
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()){
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                double estoque = rs.getDouble("estoque");
+
+                Peca peca = new Peca(id, nome, estoque);
+                pecas.add(peca);
+            }
+        }
+        return pecas;
+    }
 
     public boolean existeIdPeca(int id) throws SQLException{
         boolean existe = false;
