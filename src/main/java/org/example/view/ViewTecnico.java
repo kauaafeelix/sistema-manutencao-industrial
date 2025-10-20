@@ -14,10 +14,7 @@ public class ViewTecnico {
     public int menuTecnico(){
         System.out.println("----- Menu Técnico -----");
         System.out.println("1 - Cadastrar Técnico");
-        System.out.println("2 - Listar Técnicos");
-        System.out.println("3 - Atualizar Técnico");
-        System.out.println("4 - Deletar Técnico");
-        System.out.println("0 - Sair");
+        System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
         int opcao = scNum.nextInt();
         return opcao;
