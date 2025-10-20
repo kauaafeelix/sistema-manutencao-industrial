@@ -11,39 +11,34 @@ import java.util.List;
 public class OrdemManutencaoDAO {
 
     public void criarOrdemManutencao(OrdemManutencao ordem) throws SQLException {
-
         String sqlOrdem = """
-                INSERT INTO OrdemManutencao ( 
-                idMaquina, 
-                idTecnico,
-                dataSolicitacao,
-                status )
-                VALUES (?, ?, NOW(), 'PENDENTE')
-                """;
-
-        String sqlGetId = "SELECT id FROM OrdemManutencao ORDER BY id DESC LIMIT 1";
+            INSERT INTO OrdemManutencao (
+            idMaquina,
+            idTecnico,
+            dataSolicitacao,
+            status )
+            VALUES (?, ?, NOW(), 'PENDENTE')
+            """;
 
         String sqlMaquina = """
-                UPDATE Maquina
-                SET status = 'EM_MANUTENCAO'
-                WHERE id = ?
-                """;
-
+            UPDATE Maquina
+            SET status = 'EM_MANUTENCAO'
+            WHERE id = ?
+            """;
 
         try (Connection conn = Conexao.conectar()) {
-
-            try (PreparedStatement psOrdem = conn.prepareStatement(sqlOrdem)) {
-
+            conn.setAutoCommit(false);
+            try (PreparedStatement psOrdem = conn.prepareStatement(sqlOrdem, Statement.RETURN_GENERATED_KEYS)) {
                 psOrdem.setInt(1, ordem.getIdMaquina().getId());
                 psOrdem.setInt(2, ordem.getIdTecnico().getId());
                 psOrdem.executeUpdate();
-            }
 
-            try (PreparedStatement psGetId = conn.prepareStatement(sqlGetId);
-                 ResultSet rs = psGetId.executeQuery()) {
-                if (rs.next()) {
-                    rs.getInt("id");
-                    return;
+                try (ResultSet rs = psOrdem.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        int ordemId = rs.getInt(1);
+                        // opcional: atribuir ordemId à entidade se houver setter
+                        // ordem.setId(ordemId);
+                    }
                 }
             }
 
@@ -51,10 +46,15 @@ public class OrdemManutencaoDAO {
                 psMaquina.setInt(1, ordem.getIdMaquina().getId());
                 psMaquina.executeUpdate();
             }
+
+            conn.commit();
+        } catch (SQLException e) {
+            throw e;
         }
     }
 
-    public List<OrdemManutencao> ordens() throws SQLException {
+
+    public List<OrdemManutencao> listarOrdens() throws SQLException {
         List<OrdemManutencao> ordens = new ArrayList<>();
 
         String sql = """
