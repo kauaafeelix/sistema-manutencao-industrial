@@ -31,10 +31,10 @@ public class ViewGeral {
         System.out.println("[OK] Cadastro realizado com sucesso!");
     }
     public void mostrarMensagemErro(){
-        System.out.println("[ERRO] Erro ao cadastrar.");
+        System.err.println("[ERRO] Erro ao cadastrar.");
     }
     public void mostrarMensagemErroPorSerNulo(){
-        System.out.println("[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
+        System.err.println("[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
     }
 
     public void encerrando() {
