@@ -23,14 +23,6 @@ public class OrdemManutencaoDAO {
 
         String sqlGetId = "SELECT id FROM OrdemManutencao ORDER BY id DESC LIMIT 1";
 
-        String sqlOrdemPeca = """
-                INSERT INTO OrdemPeca (
-                idOrdemManutencao,
-                idPeca,
-                quantidade)
-                VALUES (?, ?, ?)
-                """;
-
         String sqlMaquina = """
                 UPDATE Maquina
                 SET status = 'EM_MANUTENCAO'
@@ -58,15 +50,6 @@ public class OrdemManutencaoDAO {
             try (PreparedStatement psMaquina = conn.prepareStatement(sqlMaquina)) {
                 psMaquina.setInt(1, ordem.getIdMaquina().getId());
                 psMaquina.executeUpdate();
-            }
-
-            try (PreparedStatement psOrdemPeca = conn.prepareStatement(sqlOrdemPeca)) {
-                var op = new OrdemPeca();
-                var peca = new Peca();
-                psOrdemPeca.setInt(1, ordem.getId());
-                psOrdemPeca.setInt(2, peca.getId());
-                psOrdemPeca.setDouble(3, op.getQuantidade());
-
             }
         }
     }
