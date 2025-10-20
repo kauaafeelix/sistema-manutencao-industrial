@@ -15,9 +15,6 @@ public class ViewMaquina {
     public int menuMaquina() {
         System.out.println("====== MENU MÁQUINA ======");
         System.out.println("1 - Cadastrar Máquina");
-        System.out.println("2 - Listar Máquinas");
-        System.out.println("3 - Atualizar Máquina");
-        System.out.println("4 - Deletar Máquina");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
         int opcao = scNum.nextInt();
