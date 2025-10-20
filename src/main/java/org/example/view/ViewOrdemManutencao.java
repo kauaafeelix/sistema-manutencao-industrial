@@ -40,4 +40,7 @@ public class ViewOrdemManutencao {
         return idTecnico;
     }
 
+    public void naoExisteOrdemManutencao(){
+        System.err.println("[ERRO] Não existe uma Ordem de Manutenção cadastrada com esse ID.");
+    }
 }
