@@ -30,6 +30,10 @@ public class Application {
                     ControllerOrdemManutencao controllerOrdemManutencao = new ControllerOrdemManutencao();
                     controllerOrdemManutencao.ordemManutencaoController();
                 }
+                case 5 ->{
+                    ControllerOrdemPeca controllerOrdemPeca = new ControllerOrdemPeca();
+                    controllerOrdemPeca.ordemPecaController();
+                }
                 case 0 -> {
                     viewGeral.encerrando();
                 }
