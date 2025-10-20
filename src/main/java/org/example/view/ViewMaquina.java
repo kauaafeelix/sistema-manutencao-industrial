@@ -40,7 +40,7 @@ public class ViewMaquina {
     }
 
     public void mensagemNaoExisteMaquina(){
-        System.out.println("[ERRO] Não existe máquina cadastrada com esse ID.");
+        System.err.println("[ERRO] Não existe máquina cadastrada com esse ID.");
     }
 
 }
