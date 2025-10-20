@@ -86,4 +86,25 @@ public class PecaDAO {
         }
         return existe;
     }
+
+    public Peca buscarPecaPorId(int id) throws SQLException{
+        String sql = """
+                SELECT id, nome, estoque
+                FROM Peca
+                WHERE id = ?
+                """;
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String nome = rs.getString("nome");
+                double estoque = rs.getDouble("estoque");
+
+                return new Peca(id, nome, estoque);
+            }
+        }
+        return null;
+    }
 }
