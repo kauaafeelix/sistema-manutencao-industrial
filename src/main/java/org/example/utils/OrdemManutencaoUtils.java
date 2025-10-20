@@ -21,7 +21,7 @@ public class OrdemManutencaoUtils {
                 System.out.println("-----------------------------------------");
             }
         } else {
-            System.out.println("[AVISO] Nenhuma ordem de manutenção encontrada.");
+            System.err.println("[AVISO] Nenhuma ordem de manutenção encontrada.");
         }
     }
 }
