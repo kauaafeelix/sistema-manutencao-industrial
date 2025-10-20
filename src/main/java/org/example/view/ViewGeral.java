@@ -1,5 +1,6 @@
 package org.example.view;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class ViewGeral {
@@ -28,13 +29,19 @@ public class ViewGeral {
         return opcao;
     }
     public void mostarMensagemCadastro(){
-        System.out.println("[OK] Cadastro realizado com sucesso!");
+        System.out.println("\n[OK] Cadastro realizado com sucesso!");
     }
     public void mostrarMensagemErro(){
-        System.err.println("[ERRO] Erro ao cadastrar.");
+        System.err.println("\n[ERRO] Erro ao cadastrar.");
     }
     public void mostrarMensagemErroPorSerNulo(){
-        System.err.println("[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
+        System.err.println("\n[ERRO] Os dados não podem ser NULOS. Por favor, tente novamente.");
+    }
+    public void mostrarMensagemErroSQLException(SQLException e){
+        System.err.println("\n[ERRO] Ocorreu um erro ao acessar o banco de dados: " + e.getMessage());
+    }
+    public void mostrarMensagemIdInvalido(){
+        System.err.println("\n[ERRO] ID inválido. Por favor, tente novamente.");
     }
 
     public void encerrando() {
