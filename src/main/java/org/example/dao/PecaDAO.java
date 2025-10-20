@@ -37,4 +37,26 @@ public class PecaDAO {
             }
     }
 }
+
+    public boolean existeIdPeca(int id) throws SQLException{
+        boolean existe = false;
+
+        String sql = """
+                SELECT id, nome, estoque
+                FROM Peca
+                WHERE id = ?
+                """;
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                existe = true;
+            }
+        }
+        return existe;
+    }
 }
