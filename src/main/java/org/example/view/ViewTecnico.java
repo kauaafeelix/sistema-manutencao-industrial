@@ -12,7 +12,7 @@ public class ViewTecnico {
 
 
     public int menuTecnico(){
-        System.out.println("----- Menu Técnico -----");
+        System.out.println("\n----- Menu Técnico -----");
         System.out.println("1 - Cadastrar Técnico");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
@@ -36,6 +36,6 @@ public class ViewTecnico {
     }
 
     public void mensagemNaoExisteTecnico(){
-        System.err.println("[ERRO] Não existe um Técnico cadastrado(a) com esse ID.");
+        System.err.println("\n[ERRO] Não existe um Técnico cadastrado(a) com esse ID.");
     }
 }

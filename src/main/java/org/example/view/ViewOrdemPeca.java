@@ -37,11 +37,11 @@ public class ViewOrdemPeca {
     }
 
     public void mensagemMenorEstoque() {
-        System.err.println("[ERRO] A quantidade solicitada é maior que o estoque disponível.");
+        System.err.println("\n[ERRO] A quantidade solicitada é maior que o estoque disponível.");
     }
 
     public void naoPodeSerZeroOuNegativo() {
-        System.err.println("[ERRO] A quantidade deve ser maior que zero.");
+        System.err.println("\n[ERRO] A quantidade deve ser maior que zero.");
     }
 
 }

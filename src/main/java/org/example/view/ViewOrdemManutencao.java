@@ -12,7 +12,7 @@ public class ViewOrdemManutencao {
     Scanner scStr = new Scanner(System.in);
 
     public int menuOrdemManutencao(){
-        System.out.println("----- Menu Ordem de Manutenção -----");
+        System.out.println("\n----- Menu Ordem de Manutenção -----");
         System.out.println("1 - Cadastrar Ordem de Manutenção");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
@@ -33,6 +33,6 @@ public class ViewOrdemManutencao {
     }
 
     public void naoExisteOrdemManutencao(){
-        System.err.println("[ERRO] Não existe uma Ordem de Manutenção cadastrada com esse ID.");
+        System.err.println("\n[ERRO] Não existe uma Ordem de Manutenção cadastrada com esse ID.");
     }
 }

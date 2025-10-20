@@ -12,7 +12,7 @@ public class ViewPeca {
     Scanner scStr = new Scanner (System.in);
 
     public int menuPeca(){
-        System.out.println("----- Menu Peça -----");
+        System.out.println("\n----- Menu Peça -----");
         System.out.println("1 - Cadastrar Peça");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
@@ -22,7 +22,7 @@ public class ViewPeca {
 
     public Peca cadastrarPeca(){
 
-        System.out.println("----- CADASTRO DE PEÇA -----");
+        System.out.println("\n----- CADASTRO DE PEÇA -----");
 
         System.out.println("Digite o nome da Peça: ");
         String nome = scStr.nextLine();
@@ -36,7 +36,7 @@ public class ViewPeca {
     }
 
     public void mensagemNaoExistePeca(){
-        System.err.println("[ERRO] Não existe uma Peça cadastrada com esse ID.");
+        System.err.println("\n[ERRO] Não existe uma Peça cadastrada com esse ID.");
     }
 
 
