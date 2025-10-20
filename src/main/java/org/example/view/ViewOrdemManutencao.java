@@ -14,10 +14,6 @@ public class ViewOrdemManutencao {
     public int menuOrdemManutencao(){
         System.out.println("----- Menu Ordem de Manutenção -----");
         System.out.println("1 - Cadastrar Ordem de Manutenção");
-        System.out.println("2 - Atualizar Ordem de Manutenção");
-        System.out.println("3 - Excluir Ordem de Manutenção");
-        System.out.println("4 - Listar Ordens de Manutenção");
-        System.out.println("5 - Buscar Ordem de Manutenção por ID");
         System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
 
@@ -25,10 +21,6 @@ public class ViewOrdemManutencao {
         return opcao;
     }
 
-    public void menuCriarOrdemManutencao() {
-        System.out.println("----- Criar Ordem de Manutenção -----");
-
-    }
     public int criarOrdemManutencaoIdMaquina(){
         System.out.println("Digite o ID da Máquina: ");
         int idMaquina = scNum.nextInt();
