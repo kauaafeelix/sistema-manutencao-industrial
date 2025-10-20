@@ -8,7 +8,7 @@ public class PecaUtils {
 
     public void exibirPeca(List<Peca>pecas){
         if(pecas !=null && !pecas.isEmpty()){
-            System.out.println("----- Lista de Peças -----");
+            System.out.println("\n----- Lista de Peças -----");
             for(Peca peca : pecas){
                 System.out.println("ID: " + peca.getId());
                 System.out.println("Nome: " + peca.getNome());
@@ -16,7 +16,7 @@ public class PecaUtils {
                 System.out.println("--------------------------");
             }
         } else {
-            System.err.println("[AVISO] Nenhuma peça encontrada.");
+            System.err.println("\n[AVISO] Nenhuma peça encontrada.");
         }
 
     }
