@@ -18,7 +18,7 @@ public class MaquinaUtils {
 
             }
         }else{
-            System.out.println("[AVISO] Nenhuma máquina cadastrada.");
+            System.err.println("[AVISO] Nenhuma máquina cadastrada.");
         }
     }
 }
