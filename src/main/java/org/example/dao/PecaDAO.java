@@ -20,11 +20,6 @@ public class PecaDAO {
                 SELECT id FROM Peca ORDER BY id DESC LIMIT 1
                 """;
 
-        String sqlOrdemPeca = """
-                INSERT IGNORE INTO OrdemPeca
-                (idOrdem, idPeca, quantidade)
-                VALUES (?, ?, ?)
-                """;
         try (Connection conn = Conexao.conectar()) {
 
             try (PreparedStatement psPeca = conn.prepareStatement(sqlPeca)) {
@@ -40,15 +35,6 @@ public class PecaDAO {
                     return;
                 }
             }
-
-            try(PreparedStatement psOrdemPeca = conn.prepareStatement(sqlOrdemPeca)){
-                var op = new OrdemPeca();
-                var ordem = new OrdemManutencao();
-                psOrdemPeca.setInt(1, ordem.getId());
-                psOrdemPeca.setInt(2, peca.getId());
-                psOrdemPeca.setDouble(3, op.getQuantidade());
-
-        }
     }
 }
 }
