@@ -7,8 +7,11 @@ public class ViewOrdemPeca {
     Scanner scNum = new Scanner (System.in);
     Scanner scStr = new Scanner(System.in);
 
-    public void cadastroOrdemPeca(){
-        System.out.println("\n----- Cadastro de Peças na Ordem de Manutenção -----");
+    public void menuOrdemPeca(){
+        System.out.println("\n----- Menu de Peças na Ordem de Manutenção -----");
+        System.out.println("1 - Cadastrar Peça na Ordem de Manutenção");
+        System.out.println("2 - Voltar ao Menu Principal");
+        System.out.print("Escolha uma opção: ");
     }
 
     public void cadastroOrdemPecaIdOrdemManutencao(){
