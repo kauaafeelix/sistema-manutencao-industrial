@@ -16,7 +16,7 @@ public class PecaUtils {
                 System.out.println("--------------------------");
             }
         } else {
-            System.out.println("[AVISO] Nenhuma peça encontrada.");
+            System.err.println("[AVISO] Nenhuma peça encontrada.");
         }
 
     }
