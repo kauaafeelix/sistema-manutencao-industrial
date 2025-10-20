@@ -22,12 +22,12 @@ public class ViewOrdemManutencao {
     }
 
     public int criarOrdemManutencaoIdMaquina(){
-        System.out.println("Digite o ID da Máquina: ");
+        System.out.println("\nDigite o ID da Máquina: ");
         int idMaquina = scNum.nextInt();
         return idMaquina;
     }
     public int criarOrdemManutencaoIdTecnico(){
-        System.out.println("Digite o ID do Técnico: ");
+        System.out.println("\nDigite o ID do Técnico: ");
         int idTecnico = scNum.nextInt();
         return idTecnico;
     }
