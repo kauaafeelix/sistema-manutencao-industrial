@@ -38,6 +38,9 @@ public class ViewPeca {
         return novaPeca;
     }
 
+    public void mensagemNaoExistePeca(){
+        System.err.println("[ERRO] Não existe uma Peça cadastrada com esse ID.");
+    }
 
 
 }
