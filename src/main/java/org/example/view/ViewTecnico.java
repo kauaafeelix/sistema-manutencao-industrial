@@ -39,6 +39,6 @@ public class ViewTecnico {
     }
 
     public void mensagemNaoExisteTecnico(){
-        System.out.println("[ERRO] Não existe um Técnico cadastrado(a) com esse ID.");
+        System.err.println("[ERRO] Não existe um Técnico cadastrado(a) com esse ID.");
     }
 }
