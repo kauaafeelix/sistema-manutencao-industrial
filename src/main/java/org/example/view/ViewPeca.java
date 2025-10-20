@@ -14,10 +14,7 @@ public class ViewPeca {
     public int menuPeca(){
         System.out.println("----- Menu Peça -----");
         System.out.println("1 - Cadastrar Peça");
-        System.out.println("2 - Listar Peças");
-        System.out.println("3 - Atualizar Peça");
-        System.out.println("4 - Deletar Peça");
-        System.out.println("0 - Sair");
+        System.out.println("0 - Voltar ao Menu Principal");
         System.out.print("Escolha uma opção: ");
         int opcao = scNum.nextInt();
         return opcao;
